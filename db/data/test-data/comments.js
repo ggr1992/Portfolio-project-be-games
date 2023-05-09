@@ -1,5 +1,5 @@
-module.exports = {
-  'commentsData': [
+module.exports = /*{
+  'commentsData': */ [
   {
     body: 'I loved this game too!',
     votes: 16,
@@ -43,4 +43,4 @@ module.exports = {
     created_at: new Date(1616874588110),
   }
 ]
-}
+//}

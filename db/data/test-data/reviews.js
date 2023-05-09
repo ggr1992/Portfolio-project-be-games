@@ -1,5 +1,5 @@
-module.exports =  {
-  'reviewData': [
+module.exports = /* {
+  'reviewData': */[
   {
     title: 'Agricola',
     designer: 'Uwe Rosenberg',
@@ -153,4 +153,4 @@ module.exports =  {
     votes: 16
   }
 ]
-}
+//}
