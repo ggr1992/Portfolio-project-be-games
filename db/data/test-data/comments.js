@@ -1,4 +1,5 @@
-module.exports = [
+module.exports = {
+  'commentsData': [
   {
     body: 'I loved this game too!',
     votes: 16,
@@ -40,5 +41,6 @@ module.exports = [
     author: 'philippaclaire9',
     review_id: 3,
     created_at: new Date(1616874588110),
-  },
-];
+  }
+]
+}

@@ -1,4 +1,5 @@
-module.exports = [
+module.exports = {
+  'categoriesData': [
   {
     slug: 'strategy',
     description:
@@ -34,4 +35,5 @@ module.exports = [
     description:
       'Games where players construct unique points-gaining engines main element of the gameplay'
   }
-];
+]
+}
