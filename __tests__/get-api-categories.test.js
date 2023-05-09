@@ -18,12 +18,23 @@ describe('Testing the /api/categories', () => {
         return request(app)
         .get("/api/categories")
         .expect(200)
-            .then((result) => {
-                const categories = result.body.categories
-                expect(categories.length).toBe(4)
+            .then(({body}) => {
+                const { categories } = body
                 
-                expect(categories[0]).toHaveProperty('slug')
-                expect(categories[0]).toHaveProperty('description')
+                expect(categories).toHaveLength(4)
+                categories.forEach(category => {                 
+                    expect(category).toHaveProperty('slug')
+                    expect(category).toHaveProperty('description')
+                });
+            })
+    })
+    test('test that the response is formatted correctly', () => {
+        return request(app)
+        .get("/api/categories")
+        .expect(200)
+            .then((result) => {
+                // console.log(Object.keys(result.body))
+               expect(result.body).toHaveProperty('categories')
             })
     })
     test('test that given an invalid route return an error', () => {
