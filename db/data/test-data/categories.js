@@ -16,4 +16,3 @@ module.exports =  [
       description: 'Games suitable for children'
     }
   ]
-
