@@ -1,5 +1,4 @@
-module.exports = {
-  'categoriesData': [
+module.exports =  [
     {
       slug: 'euro game',
       description: 'Abstact games that involve little luck'
@@ -17,4 +16,4 @@ module.exports = {
       description: 'Games suitable for children'
     }
   ]
-}
+

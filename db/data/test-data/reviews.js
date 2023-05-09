@@ -1,5 +1,4 @@
-module.exports =  {
-  'reviewData': [
+module.exports =   [
   {
     title: 'Agricola',
     designer: 'Uwe Rosenberg',
@@ -153,4 +152,4 @@ module.exports =  {
     votes: 16
   }
 ]
-}
+

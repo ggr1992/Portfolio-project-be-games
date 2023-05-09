@@ -1,5 +1,4 @@
-module.exports = {
-  'reviewData': [
+module.exports =  [
   {
     title: 'Culture a Love of Agriculture With Agricola',
     designer: 'Uwe Rosenberg',
@@ -288,4 +287,4 @@ module.exports = {
     votes: 11
   }
 ]
-}
+

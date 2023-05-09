@@ -1,5 +1,4 @@
-module.exports = {
-  'userData': [
+module.exports =  [
   {
     username: 'mallionaire',
     name: 'haz',
@@ -23,4 +22,4 @@ module.exports = {
       'https://www.golenbock.com/wp-content/uploads/2015/01/placeholder-user.png'
   }
 ]
-}
+
