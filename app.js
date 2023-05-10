@@ -1,13 +1,16 @@
 const express = require("express");
 const { manageCategories } = require("./controllers/categories.controllers");
+const { manageEndpoints } = require("./controllers/api.controllers");
 
 const app = express()
 
 app.use(express.json())
 
+app.get('/api/',manageEndpoints)
 
 
 app.get('/api/categories', manageCategories)
+
 
 app.use((req, res, next) => {
     res.status(404).send({msg: "Not Found!"})
