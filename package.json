@@ -24,6 +24,7 @@
   "dependencies": {
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jest-sorted": "^1.0.14",
     "pg": "^8.7.3"
   },
   "devDependencies": {
@@ -36,7 +37,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "jest-extended/all"
+      "jest-sorted"
     ]
   }
 }
