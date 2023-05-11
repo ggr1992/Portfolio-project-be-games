@@ -19,18 +19,7 @@ describe('testing the get api/reviews/:review_id endpoint', () => {
         .expect(200)
         .then((result) => {
           const reviewObj = result.body
-            
-            expect(reviewObj).toHaveProperty('review')
-            expect(reviewObj.review).toHaveProperty('review_id')
-            expect(reviewObj.review).toHaveProperty('title')
-            expect(reviewObj.review).toHaveProperty('category')
-            expect(reviewObj.review).toHaveProperty('designer')
-            expect(reviewObj.review).toHaveProperty('owner')
-            expect(reviewObj.review).toHaveProperty('review_body')
-            expect(reviewObj.review).toHaveProperty('review_img_url')
-            expect(reviewObj.review).toHaveProperty('created_at')
-            expect(reviewObj.review).toHaveProperty('votes')
-            
+                       
             expect(reviewObj.review).toEqual(expect.objectContaining({
                 review_id: expect.any(Number),
                     title: expect.any(String),
