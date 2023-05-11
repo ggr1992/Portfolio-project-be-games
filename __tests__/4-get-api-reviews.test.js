@@ -52,12 +52,12 @@ describe('testing the get api/reviews/:review_id endpoint', () => {
             expect(result.body.msg).toBe('Not Found!')
         })
     })
-    // test('that given a string instead of a review ID return an error', () => {
-    //     return request(app)
-    //     .get("/api/reviews/nonsense")
-    //     .expect(400)
-    //     .then((result) => {         
-    //         expect(result.body.msg).toBe('Bad request!')
-    //     })
-    // })
+    test('that given a string instead of a review ID return an error', () => {
+        return request(app)
+        .get("/api/reviews/nonsense")
+        .expect(400)
+        .then((result) => {         
+            expect(result.body.msg).toBe('Bad request!')
+        })
+    })
 })

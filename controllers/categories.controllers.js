@@ -6,6 +6,6 @@ exports.manageCategories = (request, response) => {
          
     })
     .catch(err => {
-        console.log(err)
+        
     })
 }

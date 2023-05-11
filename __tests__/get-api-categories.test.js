@@ -20,7 +20,7 @@ describe('Testing the /api/categories', () => {
         .expect(200)
             .then(({body}) => {
                 const { categories } = body
-                
+                expect(categories).toBeInstanceOf(Array)
                 expect(categories).toHaveLength(4)
                 categories.forEach(category => {                 
                     expect(category).toHaveProperty('slug')
@@ -33,7 +33,7 @@ describe('Testing the /api/categories', () => {
         .get("/api/categories")
         .expect(200)
             .then((result) => {
-                // console.log(Object.keys(result.body))
+               
                expect(result.body).toHaveProperty('categories')
             })
     })
@@ -47,7 +47,6 @@ describe('Testing the /api/categories', () => {
 
     })
 })
-
     
       
 
