@@ -4,6 +4,6 @@ exports.selectCategories = () => {
     return connection 
         .query('SELECT * FROM categories;')
         .then((result) => {
-             return result;
+             return result.rows;
     })
 }
