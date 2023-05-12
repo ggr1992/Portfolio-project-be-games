@@ -2,6 +2,7 @@ const express = require("express");
 const { manageCategories } = require("./controllers/categories.controllers");
 const { manageReviewsById } = require("./controllers/reviews.controllers");
 const { manageEndpoints } = require("./controllers/api.controllers");
+const { manageReviewsByComments } = require("./controllers/6-reviews-comments.controllers");
 
 const app = express()
 
@@ -10,6 +11,8 @@ app.get('/api', manageEndpoints)
 app.get('/api/categories', manageCategories)
 
 app.get("/api/reviews/:review_id", manageReviewsById);
+
+app.get('/api/reviews/:review_id/comments',manageReviewsByComments)
 
 app.use((req, res, next) => {
     res.status(404).send({msg: "Not Found!"})
