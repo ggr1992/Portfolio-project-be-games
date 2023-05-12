@@ -5,7 +5,7 @@ exports.selectReviewByComments = (review_id) => {
     SELECT comment_id,votes,created_at,author,body,review_id
      FROM comments
      WHERE review_id = $1
-     ORDER BY created_at ASC;  
+     ORDER BY created_at DESC;  
     `
     return connection 
      .query(selectingQuery,[review_id])

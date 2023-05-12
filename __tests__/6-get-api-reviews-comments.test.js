@@ -37,10 +37,12 @@ describe('testing the get api/reviews/ endpoint', () => {
         .expect(200)
         .then((result) => {
             const comments = result.body.comments
-            expect(comments).toBeSortedBy('created_at')
+            expect(comments).toBeSortedBy('created_at', {
+                descending: true,
+            })
         })
     })
-    test('throw an error if review id does not have any information', () => {
+    test('Will respond with an error 404 if given an invalid id', () => {
         return request(app)
         .get("/api/reviews/10000/comments")
         .expect(404)
@@ -48,7 +50,7 @@ describe('testing the get api/reviews/ endpoint', () => {
             expect(result.body.msg).toBe('Not Found!')
         })
     })
-    test('throw an error if reviews id is a string', () => {
+    test('Will respond with an error status 400 if given an invalid review_id', () => {
         return request(app)
         .get("/api/reviews/nonsense/comments")
         .expect(400)
