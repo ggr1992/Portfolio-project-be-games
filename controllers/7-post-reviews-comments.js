@@ -1,5 +1,6 @@
-const { insertComments } = require("../models/7-post-reciews-comments")
+const { insertComments } = require("../models/7-post-reviews-comments")
 
 exports.managePostReview = (request,response) => {
-    insertComments(request.body)
+    console.log(request.body)
+    insertComments({comments:request.body})
 }

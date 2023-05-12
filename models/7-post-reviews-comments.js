@@ -4,11 +4,14 @@ exports.insertComments = ({author , body}) => {
 
     const instertQuery = `
     INSERT INTO comments (author, body)
-    VALUES
+    VALUES ($1, $2) returning *;
     `
+
+    const inputValue = ['author', 'body']
     return connection 
-     .query(instertQuery)
+     .query(instertQuery,inputValue)
         .then((result) => {  
-          return result.rows
+        
+          return result.rows[0]
     })
 }
