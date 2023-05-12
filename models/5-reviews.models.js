@@ -1,8 +1,4 @@
 const connection = require('../db/connection')
-const { forEach } = require('../db/data/test-data/categories')
-
-
-
 
 exports.selectReview = () => {
       

@@ -21,8 +21,8 @@ describe('testing the get api/reviews/ endpoint', () => {
         .then((result) => {     
             const review = result.body.reviews
             review.forEach((review) => {
-                expect(review).toHaveProperty('comment_count')
                 expect(review).not.toHaveProperty('review_body')
+                expect(review).toHaveProperty('comment_count')
                 expect(review).toEqual(expect.objectContaining({
                     owner: expect.any(String),
                     title: expect.any(String),
@@ -32,6 +32,7 @@ describe('testing the get api/reviews/ endpoint', () => {
                     created_at: expect.any(String),
                     votes: expect.any(Number),
                     designer: expect.any(String),
+                    comment_count: expect.any(String)
                 })) 
             })
         })
