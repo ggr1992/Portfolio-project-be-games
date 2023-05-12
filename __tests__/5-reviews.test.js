@@ -3,7 +3,7 @@ const app = require("../app");
 const seed = require("../db/seeds/seed")
 const connection = require("../db/connection");
 const testData = require("../db/data/test-data/index")
-const sorted = require('jest-sorted');
+
 
 beforeEach(() => {
     return seed(testData);
@@ -43,8 +43,19 @@ describe('testing the get api/reviews/ endpoint', () => {
         .then((result) => {
            
             const review = result.body.reviews
-            console.log(review)
-            expect([review]).toBeSortedBy('crefgfdd_at');
+
+            expect(review).toBeSortedBy('created_at', {
+                descending: true,
+            });
         })
     })
+    test('.get/api/review shows up a 404 error', () => {
+        return request(app)
+        .get("/api/review")
+        .expect(404)
+        .then((result) => {            
+            expect(result.body.msg).toBe('Not Found!')
+        })
+    })
+   
 })

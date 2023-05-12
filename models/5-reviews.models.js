@@ -5,7 +5,7 @@ const { forEach } = require('../db/data/test-data/categories')
 
 
 exports.selectReview = () => {
-       
+      
     const selectingQuery = `
     SELECT reviews.designer, reviews.review_id, reviews.category, reviews.owner, reviews.review_img_url, reviews.title, reviews.votes, reviews.created_at ,COUNT(comments.comment_id) AS comment_count 
      FROM reviews       
