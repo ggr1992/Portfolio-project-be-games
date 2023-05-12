@@ -2,6 +2,7 @@ const express = require("express");
 const { manageCategories } = require("./controllers/categories.controllers");
 const { manageReviewsById } = require("./controllers/reviews.controllers");
 const { manageEndpoints } = require("./controllers/api.controllers");
+const { manageReviewsByComments } = require("./controllers/6-reviews-comments.controllers");
 const { manageReviews } = require("./controllers/5-reviews.controllers");
 
 const app = express()
@@ -14,6 +15,7 @@ app.get('/api/reviews', manageReviews)
 
 app.get("/api/reviews/:review_id", manageReviewsById);
 
+app.get('/api/reviews/:review_id/comments',manageReviewsByComments)
 app.use((error,req, res, next) => {
   if (error.code === '22P02') {
     res.status(400).send({msg: "Bad request!"})
