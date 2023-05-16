@@ -13,24 +13,19 @@ afterAll(() => {
     return connection.end()
 })
 
-// describe('Tests for post api/reviews/review_id/comments', () => {
-//     test('That given data we can post it and return a status code of 201', () => {
-//         const newPost = {
-//             author: 'Jimmy Superchips',
-//             body: 'This game hits me in the feels'
-//         }
-//         return request(app)
-//         .post("/api/reviews/3/comments")
-//         .send(newPost)
-//         .expect(201)
-//         .then(({body}) => {
+describe('Tests for post api/reviews/review_id/comments', () => {
+    test('That given data we can post it and return a status code of 201', () => {
+        const newPost = {
+            author: 'Jimmy Superchips',
+            body: 'This game hits me in the feels'
+        }
+        return request(app)
+        .post("/api/reviews/2/comments")
+        .send(newPost)
+        .expect(201)
+        .then(({body}) => {
             
-//             expect(body.comments).toEqual(newPost)
-//        })
-//     })
-// })
-describe('test to get suite to pass', () => {
-    test('remove this test', () => {
-        
+            expect(body.comments).toEqual(newPost)
+       })
     })
 })

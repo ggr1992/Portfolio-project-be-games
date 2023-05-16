@@ -18,9 +18,10 @@ app.get('/api/reviews', manageReviews)
 
 app.get("/api/reviews/:review_id", manageReviewsById);
 
+app.get('/api/reviews/:review_id/comments',manageReviewsByComments)
+
 app.post('/api/reviews/:review_id/comments',managePostReview)
 
-app.get('/api/reviews/:review_id/comments',manageReviewsByComments)
 app.use((error,req, res, next) => {
   if (error.code === '22P02') {
     res.status(400).send({msg: "Bad request!"})
