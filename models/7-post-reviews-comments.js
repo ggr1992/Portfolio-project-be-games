@@ -1,24 +1,31 @@
 const connection = require('../db/connection')
 
-exports.insertComments = (body , author, review_id) => {
-
-  
-    console.log(body,'<<< in model 1')
-    console.log(author, "<<< in model 2")
-    console.log(review_id, "<<< in model 3")
-    
-    // add all categories to test suite make sure we just return the 2 we need after adding review id extracted from string 
-
+exports.insertComments = (body , author,votes,createdAt, review_id) => { 
     const instertQuery = `
-    INSERT INTO comments (author, body)
-    VALUES ($1, $2) RETURNING *;
+    INSERT INTO comments(body,votes,author,review_id,created_at)
+    VALUES ($1, $2, $3, $4, $5) RETURNING author AS username,body;
     `
 
-    const inputValue = [author, body]
-    return connection 
-     .query(instertQuery,inputValue)
-        .then((result) => {  
-          console.log(result)
-            return result.rows[0]
+    const inputValue = [body,votes,author,review_id,createdAt]
+    
+    return connection
+    .query(`SELECT * FROM comments
+    WHERE author = '${author}';
+    `)
+    .then((result) => {
+      return result.rows
+    })
+    .then((result) => {
+      if(result.length >= 1) {
+        return connection 
+       .query(instertQuery,inputValue)
+          .then((result) => { 
+              return result.rows[0]
+      })
+  
+      } else {
+        return Promise.reject({status:404,msg: "Not Found!"})
+      }
+      
     })
 }
