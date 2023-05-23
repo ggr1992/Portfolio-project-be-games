@@ -13,8 +13,5 @@ exports.insertComments = (body , author, review_id) => {
               return result.rows[0]
       })
     }
+  
     
-
-// if object is missing information 400 
-// if review id is not a number should be 400
-// 404 for if user does not exist prom psql error
