@@ -69,7 +69,6 @@ describe('Tests for post api/reviews/review_id/comments', () => {
         .expect(400)
         .then((result) => {
             expect(result.body.msg).toBe('Bad Request!')
-            console.log(result)
         })
     })
 })
