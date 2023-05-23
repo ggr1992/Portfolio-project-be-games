@@ -32,7 +32,20 @@ app.use((error,req, res, next) => {
     next(error)
   }
 })
-
+app.use((error,req, res, next) => {
+  if (error.code === '23503') {
+    res.status(404).send({msg: "Not Found!"})
+  } else {
+    next(error)
+  }
+})
+app.use((error,req, res, next) => {
+  if (error.code === '23502') {
+    res.status(400).send({msg: "Bad Request!"})
+  } else {
+    next(error)
+  }
+})
 
 app.use((error,req, res, next) => {
   if(error.status && error.msg) {

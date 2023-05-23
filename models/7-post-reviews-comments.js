@@ -1,31 +1,21 @@
 const connection = require('../db/connection')
 
-exports.insertComments = (body , author,votes,createdAt, review_id) => { 
+exports.insertComments = (body , author, review_id) => { 
+console.log(body)
     const instertQuery = `
-    INSERT INTO comments(body,votes,author,review_id,created_at)
-    VALUES ($1, $2, $3, $4, $5) RETURNING author AS username,body;
+    INSERT INTO comments(body,author,review_id)
+    VALUES ($1, $2, $3) RETURNING *;
     `
-
-    const inputValue = [body,votes,author,review_id,createdAt]
-    
+    const inputValue = [body,author,review_id]
     return connection
-    .query(`SELECT * FROM comments
-    WHERE author = '${author}';
-    `)
-    .then((result) => {
-      return result.rows
-    })
-    .then((result) => {
-      if(result.length >= 1) {
-        return connection 
-       .query(instertQuery,inputValue)
-          .then((result) => { 
+    .query(instertQuery,inputValue)
+    .then((result) => { 
+      console.log(result)
               return result.rows[0]
       })
-  
-      } else {
-        return Promise.reject({status:404,msg: "Not Found!"})
-      }
-      
-    })
-}
+    }
+    
+
+// if object is missing information 400 
+// if review id is not a number should be 400
+// 404 for if user does not exist prom psql error
