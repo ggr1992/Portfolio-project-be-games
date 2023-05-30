@@ -6,8 +6,11 @@ const { manageReviewsByComments } = require("./controllers/6-reviews-comments.co
 const { manageReviews } = require("./controllers/5-reviews.controllers");
 const { managePostReview } = require("./controllers/7-post-reviews-comments");
 const { managePatchReviews } = require("./controllers/8-patch-reviews.controllers");
+const cors = require('cors');
 
 const app = express()
+
+app.use(cors());
 
 app.use(express.json())
 
